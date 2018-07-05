@@ -66,6 +66,9 @@ $app->singleton(
 // $app->routeMiddleware([
 //     'auth' => App\Http\Middleware\Authenticate::class,
 // ]);
+$app->routeMiddleware([
+'has-token' => App\Http\Middleware\HasToken::class,
+]);
 
 /*
 |--------------------------------------------------------------------------
@@ -92,6 +95,8 @@ $app->singleton(
 | can respond to, as well as the controllers that may handle them.
 |
 */
+$app->withEloquent();
+$app->withFacades();
 
 $app->router->group([
     'namespace' => 'App\Http\Controllers',

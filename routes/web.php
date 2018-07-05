@@ -14,3 +14,7 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->group(['prefix' => 'v1', 'middleware' => 'has-token'], function() use ($router){
+  $router->get('/user', 'v1\UserController@index');
+});
