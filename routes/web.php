@@ -17,4 +17,8 @@ $router->get('/', function () use ($router) {
 
 $router->group(['prefix' => 'v1', 'middleware' => 'has-token'], function() use ($router){
   $router->get('/user', 'v1\UserController@index');
+  $router->get('/userStore', 'v1\UserController@store');
+  $router->get('/userUpdate/{id}', 'v1\UserController@update');
+  $router->get('/userRead/{id}', 'v1\UserController@read');
+
 });
